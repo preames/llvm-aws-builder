@@ -15,15 +15,17 @@ then exit.  The setup process takes about 5 minutes.  All future
 interaction is done via the upload script from your working directory.
 
 Example:
-$ scp *.sh ubuntu@ec2-52-54-108-46.compute-1.amazonaws.com:~/
-$ ssh ubuntu@ec2-52-54-108-46.compute-1.amazonaws.com
-(On builder, not local machine)
-$ chmod u+x aws-*
-$ ./aws-builder-ubuntu-setup.sh
-$ exit
-(Back on local machine)
-$ cd <your working source directory>
-$ ./aws-builder-upload.sh
+
+::
+   $ scp *.sh ubuntu@ec2-52-54-108-46.compute-1.amazonaws.com:~/
+   $ ssh ubuntu@ec2-52-54-108-46.compute-1.amazonaws.com
+   (On builder, not local machine)
+   $ chmod u+x aws-*
+   $ ./aws-builder-ubuntu-setup.sh
+   $ exit
+   (Back on local machine)
+   $ cd <your working source directory>
+   $ ./aws-builder-upload.sh
 
 The above example assumes you've configured your ~/.ssh/config to pick
 the appropriate key when logging into AWS.
