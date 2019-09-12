@@ -1,6 +1,6 @@
 # install relevant packages
 sudo apt-get update
-sudo apt-get install emacs man-db libc6-dev dpkg-dev make build-essential binutils binutils-dev gcc g++ autoconf python git clang
+sudo apt-get --assume-yes install emacs man-db libc6-dev dpkg-dev make build-essential binutils binutils-dev gcc g++ autoconf python git clang
 
 # install a new enough cmake (from source)
 mkdir cmake
