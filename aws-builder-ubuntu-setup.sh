@@ -15,9 +15,9 @@ popd
 mkdir llvm-repo
 mkdir llvm-repo/build
 cd llvm-repo
-git clone http://llvm.org/git/llvm.git
+git clone --depth 500 https://github.com/llvm/llvm-project.git
 cd build/
-cmake ../llvm/ -DCMAKE_BUILD_TYPE=Release -DLLVM_ENABLE_ASSERTIONS=On -DLLVM_TARGETS_TO_BUILD=X86
+cmake ../llvm-project/llvm/ -DCMAKE_BUILD_TYPE=Release -DLLVM_ENABLE_ASSERTIONS=On -DLLVM_TARGETS_TO_BUILD=X86
 
 # Do the initial full build
 time make -j31
