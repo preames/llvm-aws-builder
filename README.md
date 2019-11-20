@@ -17,8 +17,9 @@ interaction is done via the upload script from your working directory.
 Example:
 
 ```
-$ scp *.sh ubuntu@ec2-52-54-108-46.compute-1.amazonaws.com:~/
-$ ssh ubuntu@ec2-52-54-108-46.compute-1.amazonaws.com
+$ AWS_BUILDER_URL=<your public dns url>
+$ scp *.sh ubuntu@${AWS_BUILDER_URL}:~/
+$ ssh ubuntu@${AWS_BUILDER_URL}
 (On builder, not local machine)
 $ chmod u+x aws-*
 $ ./aws-builder-ubuntu-setup.sh
@@ -30,3 +31,11 @@ $ ./aws-builder-upload.sh
 
 The above example assumes you've configured your ~/.ssh/config to pick
 the appropriate key when logging into AWS.
+
+To copy back a build binary (say, for using update_lit_test.py)
+...
+
+scp  ubuntu@$AWS_BUILDER_URL:~/llvm-repo/build/bin/opt ../../aws-bin/
+
+Note that the binaries are typically quite large, so you want to make sure
+you're on high bandwidth pipe, and not say, mobile internet.
