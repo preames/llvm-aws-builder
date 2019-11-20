@@ -34,9 +34,9 @@ the appropriate key when logging into AWS.
 
 To copy back a build binary (say, for using update_lit_test.py)
 
-...
+```
 scp  ubuntu@$AWS_BUILDER_URL:~/llvm-repo/build/bin/opt ../../aws-bin/
-...
+```
 
 Note that the binaries are typically quite large, so you want to make sure
 you're on high bandwidth pipe, and not say, mobile internet.
