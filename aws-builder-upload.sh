@@ -1,6 +1,6 @@
 set -e
 set -x
-git diff HEAD > BuildOnAWS.diff
+git diff origin/master > BuildOnAWS.diff
 scp BuildOnAWS.diff ubuntu@${AWS_BUILDER_URL}:~/
 rm BuildOnAWS.diff
 scp aws-*.sh ubuntu@${AWS_BUILDER_URL}:~/
