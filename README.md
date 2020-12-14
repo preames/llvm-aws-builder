@@ -5,7 +5,7 @@ shutdown and recreated periodically.  There is no *state* kept in the
 builder.
 
 To create the builder, use a spot instance w/at least 32 cores running
-Ubuntu 18.04 LTS.  (The spot page allows limited duration launches
+Ubuntu 20.04 LTS.  (The spot page allows limited duration launches
 which are ideal for this purpose as you don't have to remember to
 shut them down.  A six hour run costs approximately $3 at recent
 prices.)
