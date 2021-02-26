@@ -1,6 +1,7 @@
 set -e
 set -x
 git diff origin/main > BuildOnAWS.diff
-scp BuildOnAWS.diff ubuntu@${AWS_BUILDER_URL}:~/
+#git push llvm-builder:~/llvm-repo/llvm-project/
+scp BuildOnAWS.diff llvm-builder:~/
 rm BuildOnAWS.diff
-ssh ubuntu@${AWS_BUILDER_URL} './aws-builder-ubuntu-incremental.sh'
+ssh llvm-builder "~/aws-builder-ubuntu-incremental.sh ${@:1}"

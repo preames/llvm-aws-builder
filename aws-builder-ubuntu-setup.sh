@@ -1,3 +1,7 @@
+# ensure shutdown 120 minutes after last build attempt
+sudo shutdown -c
+sudo shutdown -P +120
+
 # install relevant packages
 sudo apt-get update
 sudo apt-get --assume-yes install emacs man-db libc6-dev dpkg-dev make build-essential binutils binutils-dev gcc g++ autoconf python git clang cmake

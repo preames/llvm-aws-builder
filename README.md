@@ -10,6 +10,13 @@ which are ideal for this purpose as you don't have to remember to
 shut them down.  A six hour run costs approximately $3 at recent
 prices.)
 
+The scripts will ensure the builder is automatically shutdown after
+roughly two hours of inactivity.  If you don't use the limited
+duration feature above **make sure that you config termination on
+shutdown** in the instance options.
+
+Once created, setup your ~/.ssh/config entry (as described below), and
+then run the aws-builder-setup.sh script.  
 Once created, copy scripts to the builder, run the setup script, and
 then exit.  The setup process takes about 5 minutes.  All future
 interaction is done via the upload script from your working directory.
@@ -17,25 +24,28 @@ interaction is done via the upload script from your working directory.
 Example:
 
 ```
-$ AWS_BUILDER_URL=<your public dns url>
-$ scp *.sh ubuntu@${AWS_BUILDER_URL}:~/
-$ ssh ubuntu@${AWS_BUILDER_URL}
-(On builder, not local machine)
-$ chmod u+x aws-*
-$ ./aws-builder-ubuntu-setup.sh
-$ exit
-(Back on local machine)
+$ ./aws-builder-setup.sh
 $ cd <your working source directory>
 $ ./aws-builder-upload.sh
 ```
 
-The above example assumes you've configured your ~/.ssh/config to pick
-the appropriate key when logging into AWS.
+The above example assumes you've configured your ~/.ssh/config to add
+an "llvm-builder" entry which handles all login details including keys
+and users.  You can test this by simple sshing into that name and ensuring
+everything works.  Example entry:
+
+...
+Host llvm-builder
+    HostName ec2-whatever.compute-1.amazonaws.com 
+    IdentityFile <path to your aws private key>
+    User ubuntu
+```
+
 
 To copy back a build binary (say, for using update_lit_test.py)
 
 ```
-scp  ubuntu@$AWS_BUILDER_URL:~/llvm-repo/build/bin/opt ../../aws-bin/
+scp llvm-builder:~/llvm-repo/build/bin/opt ../../aws-bin/
 ```
 
 Note that the binaries are typically quite large, so you want to make sure
