@@ -11,11 +11,11 @@ pushd ~/llvm-repo/llvm-project
 # git diff > ~/LastDiff.diff
 # interdiff ~/LastDiff.diff ~/BuildOnAWS.diff > ~/Delta.diff
 # patch -p2 < ~/Delta.diff
-git checkout -f main
+git checkout -f $1
 git clean -fd
 git pull --ff-only
 patch -p1 < ~/BuildOnAWS.diff
-time nice -n 19 make -j31 -C ../build ${@:1}
+time nice -n 19 make -j31 -C ../build ${@:2}
 popd
 echo "Finished incremental build"
 date
