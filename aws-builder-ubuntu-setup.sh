@@ -4,7 +4,7 @@ sudo shutdown -P +180
 
 # install relevant packages
 sudo apt-get update
-sudo apt-get --assume-yes install emacs man-db libc6-dev dpkg-dev make build-essential binutils binutils-dev gcc g++ autoconf python git clang cmake patchutils
+sudo apt-get --assume-yes install emacs man-db libc6-dev dpkg-dev make build-essential binutils binutils-dev gcc g++ autoconf python git clang cmake patchutils ninja-build
 
 # install a new enough cmake (from source)
 # NOTE: Ubuntu 20.04 currently has a recent enough one in repo
@@ -23,9 +23,9 @@ chmod u+x aws-*.sh
 mkdir llvm-repo
 mkdir llvm-repo/build
 cd llvm-repo
-git clone --depth 500 --no-single-branch https://github.com/llvm/llvm-project.git
+git clone https://github.com/llvm/llvm-project.git
 cd build/
-cmake ../llvm-project/llvm/ -DCMAKE_BUILD_TYPE=Release -DLLVM_ENABLE_ASSERTIONS=On -DLLVM_TARGETS_TO_BUILD=X86 ##-DLLVM_ENABLE_PROJECTS=clang
+cmake ../llvm-project/llvm/ -DCMAKE_BUILD_TYPE=Release -DLLVM_ENABLE_ASSERTIONS=On -DLLVM_TARGETS_TO_BUILD=X86 -DLLVM_ENABLE_PROJECTS=clang -G Ninja
 
 # Do the initial full build
-time nice -n 19 make -j31
+time nice -n 19 ninja

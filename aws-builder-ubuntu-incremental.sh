@@ -15,7 +15,7 @@ git checkout -f $1
 git clean -fd
 git pull --ff-only
 patch -p1 < ~/BuildOnAWS.diff
-time nice -n 19 make -j31 -C ../build ${@:2}
+time nice -n 19 ninja -C ../build ${@:2}
 popd
 echo "Finished incremental build"
 date
