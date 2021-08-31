@@ -54,3 +54,4 @@ Note that the binaries are typically quite large, so you want to make sure
 you're on high bandwidth pipe, and not say, mobile internet.
 
 
+If you want, you can use a stateful builder by replacing the "Terminate" in the shutdown configuration with a "Stop".  Once that's done, you can restore a builder instance by simply starting the stopped instance.  You will pay for storage of the stopped image, but assuming you're using this mechanism frequently, that's a fairly minimal cost to avoid the time cost of running setup each day.
