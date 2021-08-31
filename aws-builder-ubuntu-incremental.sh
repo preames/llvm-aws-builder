@@ -4,7 +4,7 @@ echo "Starting incremental build with fresh patch"
 date
 # ensure shutdown 180 minutes after last build attempt
 sudo shutdown -c
-sudo shutdown -P +180
+sudo shutdown -P +240
 pushd ~/llvm-repo/llvm-project
 # Replace the next four lines with the commented out ones for a much
 # faster incremental rebuild at the risk of missing rebase problems.

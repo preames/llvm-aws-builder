@@ -1,6 +1,6 @@
 # ensure shutdown 180 minutes after last build attempt
 sudo shutdown -c
-sudo shutdown -P +180
+sudo shutdown -P +240
 
 # install relevant packages
 sudo apt-get update
