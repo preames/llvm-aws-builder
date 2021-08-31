@@ -1,7 +1,7 @@
+# Push a diff of current working state against main, and then build with
+# the requested command line options.
 set -e
 set -x
-BRANCH=$(git rev-parse --abbrev-ref HEAD)
-#UPSTREAM=$(git rev-parse --abbrev-ref HEAD@{upstream})
 git diff origin/main > BuildOnAWS.diff
 
 #git push llvm-builder:~/llvm-repo/llvm-project/

@@ -26,8 +26,10 @@ Example:
 ```
 $ ./aws-builder-setup.sh
 $ cd <your working source directory>
-$ ./aws-builder-upload.sh
+$ ./aws-builder-upload.sh # OR ./aws-builder-push.sh
 ```
+
+An "upload" applies a diff against tip-of-tree of the main branch.  A "push" pushes your exact local working state (including full branch history).  "upload" is generally a good default if you're iterating on a single patch for upstream submission; "push" is for when working with more complex branch state.
 
 The above example assumes you've configured your ~/.ssh/config to add
 an "llvm-builder" entry which handles all login details including keys
@@ -45,8 +47,10 @@ Host llvm-builder
 To copy back a build binary (say, for using update_lit_test.py)
 
 ```
-scp llvm-builder:~/llvm-repo/build/bin/opt ../../aws-bin/
+./aws-builder-fetch.sh opt .
 ```
 
 Note that the binaries are typically quite large, so you want to make sure
 you're on high bandwidth pipe, and not say, mobile internet.
+
+

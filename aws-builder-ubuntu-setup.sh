@@ -24,6 +24,9 @@ mkdir llvm-repo
 mkdir llvm-repo/build
 cd llvm-repo
 git clone https://github.com/llvm/llvm-project.git
+# Allow pushes to the current branch, discarding local state so that
+# aws-builder-push works.
+git config receive.denyCurrentBranch ignore
 cd build/
 cmake ../llvm-project/llvm/ -DCMAKE_BUILD_TYPE=Release -DLLVM_ENABLE_ASSERTIONS=On -DLLVM_TARGETS_TO_BUILD=X86 -DLLVM_ENABLE_PROJECTS=clang -G Ninja
 
