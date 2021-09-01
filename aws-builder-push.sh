@@ -7,4 +7,4 @@ BRANCH=$(git rev-parse --abbrev-ref HEAD)
 git diff HEAD > BuildOnAWS.diff
 
 git push -f llvm-builder:~/llvm-repo/llvm-project/
-ssh llvm-builder "~/aws-builder-ubuntu-incremental.sh $BRANCH ${@:1}"
+ssh llvm-builder "~/aws-builder-ubuntu-pushed.sh $BRANCH ${@:1}"
