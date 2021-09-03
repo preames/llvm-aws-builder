@@ -3,8 +3,12 @@
 
 set -e
 set -x
-BRANCH=$(git rev-parse --abbrev-ref HEAD)
-git diff HEAD > BuildOnAWS.diff
 
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
 git push -f llvm-builder:~/llvm-repo/llvm-project/
+
+git diff HEAD > BuildOnAWS.diff
+scp BuildOnAWS.diff llvm-builder:~/
+rm BuildOnAWS.diff
+
 ssh llvm-builder "~/aws-builder-ubuntu-pushed.sh $BRANCH ${@:1}"
