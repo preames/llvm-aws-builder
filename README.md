@@ -36,7 +36,7 @@ an "llvm-builder" entry which handles all login details including keys
 and users.  You can test this by simple sshing into that name and ensuring
 everything works.  Example entry:
 
-...
+```
 Host llvm-builder
     HostName ec2-whatever.compute-1.amazonaws.com 
     IdentityFile <path to your aws private key>
