@@ -2,9 +2,9 @@ set -x
 set -e
 echo "Starting incremental build with fresh patch"
 date
-# ensure shutdown 180 minutes after last build attempt
+# ensure shutdown 120 minutes after last build attempt
 sudo shutdown -c
-sudo shutdown -P +240
+sudo shutdown -P +120
 pushd ~/llvm-repo/llvm-project
 git checkout -f $1
 git clean -fd
