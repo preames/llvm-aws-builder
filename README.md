@@ -119,3 +119,9 @@ to recreate a builder each time you want to use one (which adds a couple
 minutes setup delay), but has the benefit of not needing to pay storage costs
 in between usage.
 
+## Other cloud platforms
+
+While these scripts were developed for instances running on AWS, and that's
+what the documentation describes, there's really nothing in the scripts
+themselves which care about the source of the remote image.  In principal
+you could use this for any remote build machine.  
