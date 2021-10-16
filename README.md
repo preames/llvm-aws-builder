@@ -66,7 +66,7 @@ working state (including full branch history) and builds that.
 
 
 ```
-$ aws-builder push
+$ aws-builder push <build-arguments>
 ```
 
 There are two potential downsides to a "push".  The first is that it requires
@@ -81,8 +81,13 @@ post a patch for review and confirm that it builds on ToT without disrupting
 your local checkout or build state.  
 
 ```
-$ aws-builder upload
+$ aws-builder upload <build-arguments>
 ```
+
+Both "upload" and "push" pass additional arguments on to the underlying ninja
+build command.  As a result, running "aws-builder push opt" or "aws-builder
+push check-llvm" gives you the same options for restricted builds as a local
+build would.
 
 To copy back a build binary (say, for using update_lit_test.py)
 
