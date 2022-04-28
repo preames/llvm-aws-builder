@@ -3,8 +3,8 @@ set -e
 echo "Starting incremental build with fresh patch"
 date
 # ensure shutdown 120 minutes after last build attempt
-sudo shutdown -c
-sudo shutdown -P +120
+./aws-builder-ubuntu-arm-ahutdown-timer.sh
+
 pushd ~/llvm-repo/llvm-project
 # Replace the next four lines with the commented out ones for a much
 # faster incremental rebuild at the risk of missing rebase problems.

@@ -1,6 +1,5 @@
 # ensure shutdown 120 minutes after last build attempt
-sudo shutdown -c
-sudo shutdown -P +120
+./aws-builder-ubuntu-arm-ahutdown-timer.sh
 
 # install relevant packages
 sudo apt-get update
