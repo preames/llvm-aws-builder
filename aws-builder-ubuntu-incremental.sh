@@ -5,7 +5,7 @@ date
 # ensure shutdown 120 minutes after last build attempt
 ./aws-builder-ubuntu-arm-ahutdown-timer.sh
 
-pushd ~/llvm-repo/llvm-project
+pushd ~/llvm-dev/llvm-project
 # Replace the next four lines with the commented out ones for a much
 # faster incremental rebuild at the risk of missing rebase problems.
 # git diff > ~/LastDiff.diff

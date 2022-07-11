@@ -6,4 +6,4 @@ if [ "$#" -ne 2 ]; then
     exit -1
 fi
 
-rsync -v --info=progress llvm-builder:~/llvm-repo/build/bin/$1 $2
+rsync -v --info=progress llvm-builder:~/llvm-dev/build/bin/$1 $2

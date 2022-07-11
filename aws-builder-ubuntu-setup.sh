@@ -19,9 +19,9 @@ sudo apt-get --assume-yes install emacs man-db libc6-dev dpkg-dev make build-ess
 chmod u+x aws-*.sh
 
 # Setup the source/build tree
-mkdir llvm-repo
-mkdir llvm-repo/build
-cd llvm-repo
+mkdir llvm-dev
+mkdir llvm-dev/build
+cd llvm-dev
 git clone https://github.com/llvm/llvm-project.git
 # Allow pushes to the current branch, discarding local state so that
 # aws-builder-push works.

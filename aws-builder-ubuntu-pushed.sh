@@ -5,7 +5,7 @@ date
 # ensure shutdown 120 minutes after last build attempt
 ./aws-builder-ubuntu-arm-ahutdown-timer.sh
 
-pushd ~/llvm-repo/llvm-project
+pushd ~/llvm-dev/llvm-project
 git checkout -f $1
 git clean -fd
 patch -p1 < ~/BuildOnAWS.diff
