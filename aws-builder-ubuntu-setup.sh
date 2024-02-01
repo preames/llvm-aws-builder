@@ -27,7 +27,7 @@ git clone https://github.com/llvm/llvm-project.git
 # aws-builder-push works.
 git config receive.denyCurrentBranch ignore
 cd build/
-cmake ../llvm-project/llvm/ -DCMAKE_BUILD_TYPE=Release -DLLVM_ENABLE_ASSERTIONS=On -DLLVM_TARGETS_TO_BUILD=X86 -DLLVM_ENABLE_PROJECTS=clang -G Ninja
+cmake ../llvm-project/llvm/ -DCMAKE_BUILD_TYPE=Release -DLLVM_ENABLE_ASSERTIONS=On -DLLVM_TARGETS_TO_BUILD=all -DLLVM_ENABLE_PROJECTS=clang -G Ninja
 
 # Do the initial full build
 time nice -n 19 ninja
